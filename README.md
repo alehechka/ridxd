@@ -1,4 +1,4 @@
-# idxd
+# ridxd
 
 > A tiny (143 bytes) function for reverse indexing a map into an array of objects with that index included.
 
