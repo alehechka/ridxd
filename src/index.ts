@@ -1,6 +1,9 @@
-export const sum = (a: number, b: number) => {
-  if ('development' === process.env.NODE_ENV) {
-    console.log('boop');
-  }
-  return a + b;
+export default (map: { [key: string]: Record<any, any> }, key: string) => {
+  return Object.keys(map).reduce((arr, index) => {
+    arr.push({
+      ...map[index],
+      [key]: index,
+    });
+    return arr;
+  }, [] as Array<Record<any, any>>);
 };
