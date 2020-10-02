@@ -13,33 +13,27 @@ $ yarn add ridxd
 ```js
 import ridxd from 'ridxd';
 
-const users = {
-  'Chrysostom': {
+const data = {
+  'thing 1': {
     id: '001',
-    firstName: 'John',
+    member: 'Who',
   },
-  'the Great': {
+  'thing 2': {
     id: '002',
-    firstName: 'Basil',
-    lastName: 'the Great',
+    member: 'Why',
   },
-  'of Nyssa': {
+  'Cat in the Hat': {
     id: '003',
-    firstName: 'Gregory',
-  },
-  'the Syrian': {
-    id: '004',
-    firstName: 'Ephrem',
+    member: 'How',
   }
 };
 
-const usersByLastName = ridxd(users, 'lastName');
+const dataArray = ridxd(data, 'character');
 /* =>
 [
-  { id: '001', firstName: 'John', lastName: 'Chrysostom' },
-  { id: '002', firstName: 'Basil', lastName: 'the Great' },
-  { id: '003', firstName: 'Gregory', lastName: 'of Nyssa' },
-  { id: '004', firstName: 'Ephrem', lastName: 'the Syrian' },
+  { id: '001', member: 'Who', character: 'thing 1' },
+  { id: '002', member: 'Why', character: 'thing 2' },
+  { id: '003', member: 'How', character: 'Cat in the Hat' },
 ]
 */
 ```
@@ -48,18 +42,11 @@ const usersByLastName = ridxd(users, 'lastName');
 
 ### `ridxd(map, key)`
 
-#### `map`
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `map` | `{ [key: string]: <Record<any, any>> }` | `true` | An indexed map of objects to reverse index into an array. |
+| `key` | `string` | `true` | The name of the field you wish the index to take on in each object. |
 
-Type: `{ [key: string]: <Record<any, any>> }`
+### Inspiration
 
-Required: ✅
-
-An indexed map of objects to reverse index into an array.
-
-#### `key`
-
-Type: `string`
-
-Required: ✅
-
-The name of the field you wish the index to take on in each object.
+This packages was inspired by [idxd](https://github.com/Renddslow/idxd) and the need for the reverse operation of it. 
